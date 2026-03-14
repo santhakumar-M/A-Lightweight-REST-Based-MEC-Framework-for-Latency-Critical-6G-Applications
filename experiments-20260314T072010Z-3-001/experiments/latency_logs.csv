@@ -1,0 +1,28 @@
+Timestamp,Command,Metric Type,Value,Unit,Endpoint,Status,Details
+2026-02-09T00:41:00,Measure-Command { curl.exe -X POST http://localhost:8000/invoke },Round-Trip Latency,54.9644,ms,/invoke,Success,First measurement
+2026-02-09T00:42:00,Measure-Command { curl.exe -X POST http://localhost:8000/api/v1/services/identity-service/invoke },Round-Trip Latency,62.8153,ms,/api/v1/services/identity-service/invoke,Success,Identity Service
+2026-02-09T00:43:00,Measure-Command { curl.exe -X POST http://localhost:8000/invoke },Round-Trip Latency,46.2214,ms,/invoke,Success,Second measurement
+2026-02-09T00:44:00,curl -X POST http://localhost:8000/invoke,Server Execution Time,2.0206,ms,/invoke,Success,Raw: 0.002020597457885742s
+2026-02-09T00:44:01,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.5640,ms,/invoke,Success,Raw: 0.00156402587890625s
+2026-02-09T00:44:02,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.4279,ms,/invoke,Success,Raw: 0.0014278888702392578s
+2026-02-09T00:44:03,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.6737,ms,/invoke,Success,Raw: 0.0016736984252929688s
+2026-02-09T00:44:04,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.4112,ms,/invoke,Success,Raw: 0.0014111995697021484s
+2026-02-09T00:44:05,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.5345,ms,/invoke,Success,Raw: 0.0015344619750976562s
+2026-02-09T00:44:06,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.4021,ms,/invoke,Success,Raw: 0.001402139663696289s
+2026-02-09T00:44:07,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.3850,ms,/invoke,Success,Raw: 0.0013849735260009766s
+2026-02-09T00:44:08,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.7757,ms,/invoke,Success,Raw: 0.0017757415771484375s
+2026-02-09T00:44:09,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.6711,ms,/invoke,Success,Raw: 0.0016710758209228516s
+2026-02-09T00:44:10,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.4057,ms,/invoke,Success,Raw: 0.0014057159423828125s
+2026-02-09T00:44:11,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.6029,ms,/invoke,Success,Raw: 0.0016028881072998047s
+2026-02-09T00:44:12,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.3633,ms,/invoke,Success,Raw: 0.0013632774353027344s
+2026-02-09T00:44:13,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.3657,ms,/invoke,Success,Raw: 0.00136566162109375s
+2026-02-09T00:44:14,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.6873,ms,/invoke,Success,Raw: 0.0016872882843017578s
+2026-02-09T00:44:15,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.3256,ms,/invoke,Success,Raw: 0.0013256072998046875s
+2026-02-09T00:44:16,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.5321,ms,/invoke,Success,Raw: 0.0015320777893066406s
+2026-02-09T00:44:17,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.4164,ms,/invoke,Success,Raw: 0.0014164447784423828s
+2026-02-09T00:44:18,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.9572,ms,/invoke,Success,Raw: 0.0019571781158447266s
+2026-02-09T00:44:19,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.5025,ms,/invoke,Success,Raw: 0.0015025138854980469s
+2026-02-09T00:44:20,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,N/A,ms,/invoke,Failed,Connection refused
+2026-02-09T00:44:21,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,N/A,ms,/invoke,Failed,Connection refused
+2026-02-09T00:44:22,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,N/A,ms,/invoke,Failed,Connection refused
+2026-02-09T00:44:23,curl.exe -X POST http://localhost:8000/invoke,Server Execution Time,1.6673,ms,/invoke,Success,Raw: 0.0016672611236572266s

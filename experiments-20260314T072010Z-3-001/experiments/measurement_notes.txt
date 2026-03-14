@@ -1,0 +1,50 @@
+# Experimental Measurement Notes
+Date: 2026-02-09
+Environment: Minikube on WSL2 (Windows 11) using Docker driver.
+
+## Session Overview
+- Started minikube session to inspect images.
+- Attempted to deploy `mec-baseline`.
+- Encountered multiple `PodNotFound` errors when attempting to port-forward immediately after applying the deployment.
+- Successfully established port-forwarding after waiting for the pod to reach `Running` state.
+- Conducted latency measurements using `Measure-Command` (PowerShell) and `curl` (Command Prompt).
+
+## Observations
+1. **Cold Start / Initialization Delays**:
+   - Initial attempts to `port-forward` failed because the pod was not yet ready (`NotFound`).
+   - The user had to delete and re-apply the deployment multiple times to get a stable running pod.
+
+2. **Metrics Measured**:
+   - **Round-Trip Latency (Client-side)**: Measured via `Measure-Command`. This includes network overhead, HTTP request/response handling, and server execution.
+     - Values: ~46ms - 62ms.
+   - **Server Execution Time (Server-side)**: Measured via `curl` interpreting the JSON response from the app. This is purely the time the Python application took to process the request.
+     - Values: ~1.3ms - 2.0ms.
+
+   **Analysis**:
+   - The significant difference (~45-60ms vs ~1.5ms) indicates that the majority of the latency is introduced by the interaction between the Windows host, WSL2, and the Minikube networking stack (ingress/port-forwarding overhead), rather than the application logic itself.
+
+3. **Stability Issues**:
+   - Towards the end of the session, `curl` commands failed with `Connection refused` (curl: (7)). This suggests the port-forwarding tunnel might have collapsed or the pod crashed/restarted.
+   - One successful request passed through after the failures, indicating potential intermittent connectivity or a service recovery.
+
+## Raw Logs Excerpt
+
+### Deployment Issues
+```
+PS ...> kubectl apply -f deployment.yaml
+deployment.apps/mec-baseline created
+PS ...> kubectl port-forward pod/mec-baseline-<ID> 8000:8000
+Error from server (NotFound): pods "mec-baseline-<ID>" not found
+```
+
+### Successful Latency Measurement (Round Trip)
+```
+PS C:\Users\SEC> Measure-Command { curl.exe -X POST http://localhost:8000/invoke }
+TotalMilliseconds : 54.9644
+```
+
+### Successful Execution Time Measurement (Server Side)
+```
+C:\Users\SEC>curl.exe -X POST http://localhost:8000/invoke
+{"stdout":"Python 3.13.12\n","execution_time":0.00156402587890625}
+```
