@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mec-baseline
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mec-baseline
+  template:
+    metadata:
+      labels:
+        app: mec-baseline
+    spec:
+      containers:
+      - name: mec-baseline
+        image: k8s-baseline-mec:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
